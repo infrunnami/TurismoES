@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Turismo Extremo Sur</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Bienvenidos a Turismo Extremo Sur</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'servicios' %}">Nuestros Servicios</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Explora con nosotros</h2>
+        <p>Bienvenidos a Turismo Extremo Sur. </p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Turismo Extremo Sur</p>
+    </footer>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
