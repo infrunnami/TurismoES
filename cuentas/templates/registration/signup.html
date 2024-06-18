@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <style>
+        .error-message {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Turismo Extremo Sur</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'servicios' %}">Nuestros Servicios</a></li>
+                <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="center">
+        <h1>Registrarse</h1>
+        <form method="post">
+            {% csrf_token %}
+            
+            {% if form.non_field_errors %}
+                <div class="error-message">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            <p>Por favor, complete el siguiente formulario para registrarse:</p>
+
+            <div class="txt_field">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {% if form.username.errors %}
+                    <div class="error-message">
+                        {{ form.username.errors }}
+                    </div>
+                {% endif %}
+                <p>Nombre de usuario: Requerido. Máximo 150 caracteres. Solo letras, dígitos y @/./+/-/_.</p>
+            </div>
+
+            <div class="txt_field">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+                {% if form.password1.errors %}
+                    <div class="error-message">
+                        {{ form.password1.errors }}
+                    </div>
+                {% endif %}
+                <p>Contraseña: Debe tener al menos 8 caracteres. No puede ser demasiado similar a su otra información personal, ni una contraseña común, ni completamente numérica.</p>
+            </div>
+
+            <div class="txt_field">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+                {% if form.password2.errors %}
+                    <div class="error-message">
+                        {{ form.password2.errors }}
+                    </div>
+                {% endif %}
+                <p>Confirmación de contraseña: Por favor, ingrese la misma contraseña para verificación.</p>
+            </div>
+
+            <input type="submit" value="Registrarse">
+        </form>
+    </div>
+</body>
+</html>
+

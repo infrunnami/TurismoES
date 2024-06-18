@@ -8,3 +8,5 @@ def index(request):
 def servicios(request):
     servicios = Servicio.objects.all()
     return render(request, 'turismo/servicios.html', {'servicios': servicios})
+
+

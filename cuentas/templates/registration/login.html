@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Turismo Extremo Sur</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'servicios' %}">Nuestros Servicios</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="center">
+        <h1>Login</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="txt_field">
+                <input type="text" name="username" required>
+                <span></span>
+                <label>Usuario</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password" required>
+                <span></span>
+                <label>Contraseña</label>
+            </div>
+            <input type="submit" value="Entrar">
+            <div class="signup_link">
+                No tienes cuenta? <a href="{% url 'signup' %}">Crea una</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

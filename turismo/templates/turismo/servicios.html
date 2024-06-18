@@ -12,6 +12,7 @@
             <ul>
                 <li><a href="{% url 'index' %}">Inicio</a></li>
                 <li><a href="{% url 'servicios' %}">Nuestros Servicios</a></li>
+                <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
             </ul>
         </nav>
     </header>
@@ -20,7 +21,9 @@
         <ul>
             {% for servicio in servicios %}
             <li>
-                <img src="{{ servicio.foto.url }}" alt="Foto de {{ servicio.descripcion }}">
+                {% if servicio.foto %}
+                    <img src="{{ servicio.foto.url }}" alt="Foto de {{ servicio.descripcion }}">
+                {% endif %}
                 <p>{{ servicio.descripcion }}</p>
                 <p>Precio: ${{ servicio.precio }}</p>
             </li>
@@ -28,8 +31,9 @@
         </ul>
     </main>
     <footer>
-        <p>&copy; 2024 Turismo Extremo Sur</p>
+        <p>hola</p>
     </footer>
     <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>
+
